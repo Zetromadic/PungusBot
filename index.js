@@ -8,7 +8,7 @@ const PREFIX = 'p!';
 const cheerio = require ('cheerio');
 const request = require('request');
 
-var version = '1.0.1';
+var version = '1.0.3';
 
 const fs = require('fs');
 
@@ -19,7 +19,7 @@ var profanitites = require('profanities');
 
 client.on('ready', () => {
     console.log('Pungus is online!')
-    client.user.setActivity('you', { type: 'PLAYING'}).catch(console.error);
+    client.user.setActivity('p! | coolio', { type: 'PLAYING'}).catch(console.error);
 })
 
 client.on('guildMemberAdd', member =>{
