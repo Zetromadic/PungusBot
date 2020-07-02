@@ -19,7 +19,7 @@ var profanitites = require('profanities');
 
 client.on('ready', () => {
     console.log('Pungus is online!')
-    client.user.setActivity('p!', { type: 'PLAYING'}).catch(console.error);
+    client.user.setActivity('you', { type: 'PLAYING'}).catch(console.error);
 })
 
 client.on('guildMemberAdd', member =>{
@@ -40,10 +40,9 @@ client.on('message', message=> {
 
     switch(args[0]){
 
-        case 'youtube':
+        case 'doom':
             message.delete();
-            var ychannel = client.channels.cache.find(channel => channel.id === '702697020439134239');
-            ychannel.send('https://www.youtube.com/channel/UCWC2GrfiuXkA1mpmJfC3KBA');
+            client.user.setActivity('YOUR DOOM!', { type: 'PLAYING'}).catch(console.error);
         break;
             
         break;
