@@ -46,8 +46,7 @@ client.on('message', message=> {
             client.user.setActivity('YOUR DOOM!', { type: 'PLAYING'}).catch(console.error);
         break;
         case 'killall':
-            var role = message.guild.roles.cache.find(role => role.name === "MyRole");
-            message.member.addRole(role);
+            
         break;
         case 'gotte':
             message.delete();
