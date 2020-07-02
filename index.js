@@ -144,9 +144,6 @@ client.on('message', message=> {
             let MoviePicked = message.guild.members.cache.get(args[0]);
             let Invited = message.guild.members.cache.get(args[1]);
             let Time = message.guild.members.cache.get(args[2]);
-            if(!Invited) return message.channel.send('Could not find user!');
-            if(!MoviePicked) return message.channel.send('Pick a Movie!');
-            if(!Time) return message.channel.send('Pick a Time!');
 
             let movieEmbed = new Discord.MessageEmbed()
             .setTitle('Movie')
