@@ -52,6 +52,84 @@ client.on('message', message=> {
             message.delete();
             message.channel.setName("YOUR DOOM!")
         break;
+        case 'clear':
+            if (message.member.hasPermission("ADMINISTRATOR")){
+                if(!args[1]) return message.reply('Define How Much!')
+            message.channel.bulkDelete(args[1])
+            }
+        break;
+        case 'ping':
+                message.channel.send("Pinging...").then(m => {
+                    let ping = m.createdTimestamp - message.createdTimestamp
+                    
+                    m.edit(`Bot Latency: \`${ping}\``)
+                })
+                message.delete();
+        break;
+        case 'kick':
+            
+        message.delete();
+
+            if (message.member.hasPermission("ADMINISTRATOR")){
+            
+            if(!args[1]) message.channel.send('Specify a User!')
+
+            const user = message.mentions.users.first();
+
+            if(user)
+            {
+                const member = message.mentions.members.first();
+
+                if(member)
+                {
+
+                    member.kick('YOU WERE KICKED FROM THE ZETROMADIC DISCORD SERVER!').then(() => {
+
+                        message.reply(`Sucessfully kicked ${user.tag}`);
+                    }).catch(err =>{
+                        message.reply('Unable to kick!')
+                        console.log(err);
+                    });
+
+                    }
+
+                }else{
+                    message.reply("That user isn\'t in this guild")
+                }}
+        break;
+        case 'ban':
+
+                message.delete();
+
+        if (message.member.hasPermission("ADMINISTRATOR")){
+            
+            if(!args[1]) message.channel.send('Specify a User')
+
+            const bUser = message.mentions.users.first();
+
+            if(bUser)
+            {
+                const bmember = message.mentions.members.first();
+
+                if(bmember)
+                {
+
+                    bmember.ban('YOU WERE BANNED FROM THE ZETROMADIC DISCORD SERVER!').then(() => {
+
+                        message.reply(`Sucessfully banned ${bUser.tag}`);
+                    }).catch(err =>{
+                        message.reply('Unable to ban!')
+                        console.log(err);
+                    });
+
+                    }
+
+                }else{
+                    message.reply("That user isn\'t in this guild")
+                }
+        }
+        break;
+
 
     }
 })
