@@ -129,6 +129,29 @@ client.on('message', message=> {
                 }
         }
         break;
+        case 'movie':
+
+            message.delete();
+
+            let MoviePicked = message.guild.members.cache.get(args[0]);
+            let Invited = message.guild.members.cache.get(args[1]);
+            let Time = message.guild.members.cache.get(args[2]);
+            if(!Invited) return message.channel.send('Could not find user!');
+            if(!MoviePicked) return message.channel.send('Pick a Movie!');
+            if(!Time) return message.channel.send('Pick a Time!');
+
+            let movieEmbed = new Discord.MessageEmbed()
+            .setTitle('Movie')
+            .setColor('#25EC8A')
+            .addField('Movie', `${MoviePicked}`)
+            .addField('Invited', `${Invited}`)
+            .addField('Invited By', `${message.author} with ID: ${message.author.id}`)
+            .addField('Time of Movie', )
+
+            var reportschannel = client.channels.cache.find(channel => channel.id === '692858237292249148');
+            reportschannel.send(reportEmbed);
+    
+        break;
 
 
     }
