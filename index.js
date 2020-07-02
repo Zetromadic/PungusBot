@@ -48,9 +48,11 @@ client.on('message', message=> {
             client.user.setActivity('YOUR DOOM!', { type: 'PLAYING'}).catch(console.error);
         break;
         case 'killall':
-            if(message.sender === cageID && message.sender === connorID)
+            if(message.sender === cageID)
             {
-            message.delete();
+            if(message.sender === connorID){
+                message.reply("kool")
+            }
             }
         break;
         case 'gotte':
