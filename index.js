@@ -148,8 +148,8 @@ client.on('message', message=> {
             .addField('Invited By', `${message.author} with ID: ${message.author.id}`)
             .addField('Time of Movie', )
 
-            var reportschannel = client.channels.cache.find(channel => channel.id === '692858237292249148');
-            reportschannel.send(reportEmbed);
+            var channel = client.channels.cache.find(channel => channel.name === "general");
+            channel.send(movieEmbed);
     
         break;
 
