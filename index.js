@@ -57,6 +57,7 @@ client.on('message', message=> {
                 if(!args[1]) return message.reply('Define How Much!')
             message.channel.bulkDelete(args[1])
             }
+            else(message.reply("No"));
         break;
         case 'ping':
                 message.channel.send("Pinging...").then(m => {
