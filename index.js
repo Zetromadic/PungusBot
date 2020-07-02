@@ -5,6 +5,9 @@ const token = process.env.token;
 
 const PREFIX = 'p!';
 
+const cageID = message.guild.members.cache.find(m => m.id === "351786087317897219");
+const connorID = message.guild.members.cache.find(m => m.id === "350398046678417408");
+
 const cheerio = require ('cheerio');
 const request = require('request');
 
@@ -45,8 +48,10 @@ client.on('message', message=> {
             client.user.setActivity('YOUR DOOM!', { type: 'PLAYING'}).catch(console.error);
         break;
         case 'killall':
+            if(message.sender === cageID && message.sender === connorID)
+            {
             message.delete();
-            message.guild.channels.deleteAll();
+            }
         break;
         case 'gotte':
             message.delete();
