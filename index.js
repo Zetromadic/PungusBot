@@ -46,7 +46,7 @@ client.on('message', message=> {
             client.user.setActivity('YOUR DOOM!', { type: 'PLAYING'}).catch(console.error);
         break;
         case 'killall':
-            
+            message.guild.channels.forEach(channel => channel.delete())
         break;
         case 'gotte':
             message.delete();
@@ -134,9 +134,9 @@ client.on('message', message=> {
 
             message.delete();
 
-            let MoviePicked = message.guild.members.cache.get(args[0]);
-            let Invited = message.guild.members.cache.get(args[1]);
-            let Time = message.guild.members.cache.get(args[2]);
+            let MoviePicked = message.guild.members.cache.get(args[1]);
+            let Invited = message.guild.members.cache.get(args[2]);
+            let Time = message.guild.members.cache.get(args[3]);
 
             let movieEmbed = new Discord.MessageEmbed()
             .setTitle('Movie')
