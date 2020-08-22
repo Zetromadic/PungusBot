@@ -20,18 +20,8 @@ var profanitites = require('profanities');
 
 client.on('ready', () => {
     console.log('Pungus is online!')
-    client.user.setActivity('p! | coolio', { type: 'PLAYING'}).catch(console.error);
+    client.user.setActivity('p!', { type: 'PLAYING'}).catch(console.error);
 })
-
-client.on('guildMemberAdd', member =>{
-
-    const channel = member.guild.channels.cache.find(channel => channel.name === "general");
-    if(!channel) return;
-
-    channel.send(`**Welcome ${member} to the Server!!**`)
-
-
-});
 
 client.on('message', message=> {
 
@@ -58,14 +48,6 @@ client.on('message', message=> {
             message.channel.bulkDelete(args[1])
             }
             else(message.reply("No"));
-        break;
-        case 'ping':
-                message.channel.send("Pinging...").then(m => {
-                    let ping = m.createdTimestamp - message.createdTimestamp
-                    
-                    m.edit(`Bot Latency: \`${ping}\``)
-                })
-                message.delete();
         break;
         case 'kick':
             
@@ -130,28 +112,33 @@ client.on('message', message=> {
                 }
         }
         break;
-        case 'movie':
 
-            message.delete();
+        case 'pickledidly':
+            if (message.author.id === '351786087317897219') 
+            {
 
-            let MoviePicked = message.guild.members.cache.get(args[1]);
-            let Invited = message.guild.members.cache.get(args[2]);
-            let Time = message.guild.members.cache.get(args[3]);
+                message.delete();
 
-            let movieEmbed = new Discord.MessageEmbed()
-            .setTitle('Movie')
-            .setColor('#25EC8A')
-            .addField('Movie', `${MoviePicked}`)
-            .addField('Invited', `${Invited}`)
-            .addField('Invited By', `${message.author} with ID: ${message.author.id}`)
-            .addField('Time of Movie', )
+                let cage = message.author.id === '351786087317897219';
+                let Turnip = message.author.id === '642970611815153665';
+                if(!cage) return message.reply("Error...");
 
-            var channel = client.channels.cache.find(channel => channel.name === "general");
-            channel.send(movieEmbed);
-    
+                let mainrole = message.guild.roles.cache.find(role => role.name === "piss gang");
+                let badrole = message.guild.roles.cache.find(role => role.name === "Blistersss");
+                let oworole = message.guild.roles.cache.find(role => role.name === "OwO");
+
+                if(!badrole) return message.reply("2x Error...");
+                if(!oworole) return message.reply("3x Error...");
+                if(!mainrole) return message.reply("4x Error...");
+
+
+                cage.roles.add(mainrole.id)
+                cage.roles.add(oworole.id);
+                Turnip.roles.remove(mainrole.id)
+                Turnip.roles.remove(oworole.id);
+
+            }
         break;
-
-
     }
 })
 
