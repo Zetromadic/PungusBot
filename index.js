@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const token = process.env.token;
+//const token = process.env.token;
+const token = 'NzI4MDQ3Mzk2OTUyNDczNjI4.Xv0s-Q.drajw-d1FgVnUOrCn6HixeBoZ-g'
 
 const PREFIX = 'p!';
 
@@ -113,29 +114,18 @@ client.on('message', message=> {
         }
         break;
 
-        case 'pickledidly':
-            if (message.author.id === '351786087317897219') 
+        case 'pickleddidly':
+            if (message.author.id === '350398046678417408') 
             {
-
                 message.delete();
 
-                let cage = message.author.id === '351786087317897219';
-                let Turnip = message.author.id === '642970611815153665';
-                if(!cage) return message.reply("Error...");
+                let cage = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[2]))
 
-                let mainrole = message.guild.roles.cache.find(role => role.name === "piss gang");
-                let badrole = message.guild.roles.cache.find(role => role.name === "Blistersss");
-                let oworole = message.guild.roles.cache.find(role => role.name === "OwO");
+                let OwOrole = message.guild.roles.cache.find(role => role.name === "OwO");
+                let pissgangrole = message.guild.roles.cache.find(role => role.name === "piss gang");
 
-                if(!badrole) return message.reply("2x Error...");
-                if(!oworole) return message.reply("3x Error...");
-                if(!mainrole) return message.reply("4x Error...");
-
-
-                cage.roles.add(mainrole.id)
-                cage.roles.add(oworole.id);
-                Turnip.roles.remove(mainrole.id)
-                Turnip.roles.remove(oworole.id);
+                cage.roles.remove(OwOrole.id)
+                cage.roles.add(pissgangrole.id);
 
             }
         break;
